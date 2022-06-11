@@ -1,0 +1,95 @@
+local XalunicHub = Instance.new("ScreenGui")
+local Startup = Instance.new("Frame")
+local Corner = Instance.new("UICorner")
+local Color = Instance.new("UIGradient")
+local UserIDservice = Instance.new("ImageLabel")
+local UICorner = Instance.new("UICorner")
+local UsernameService = Instance.new("TextLabel")
+local Login = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+XalunicHub.Name = "Xalunic Hub"
+XalunicHub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+XalunicHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Startup.Name = "Startup"
+Startup.Parent = XalunicHub
+Startup.BackgroundColor3 = Color3.fromRGB(199, 143, 2)
+Startup.BorderColor3 = Color3.fromRGB(112, 175, 220)
+Startup.Position = UDim2.new(0.110909134, 0, 0.235860407, 0)
+Startup.Size = UDim2.new(0, 379, 0, 439)
+Corner.CornerRadius = UDim.new(0.100000001, 1)
+Corner.Name = "Corner"
+Corner.Parent = Startup
+Color.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(162, 0, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(149, 132, 0))}
+Color.Name = "Color"
+Color.Parent = Startup
+UserIDservice.Name = "UserIDservice"
+UserIDservice.Parent = Startup
+UserIDservice.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UserIDservice.Position = UDim2.new(0.401055396, 0, 0.0569476075, 0)
+UserIDservice.Size = UDim2.new(0, 75, 0, 75)
+UserIDservice.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+UICorner.CornerRadius = UDim.new(0, 100)
+UICorner.Parent = UserIDservice
+UsernameService.Name = "UsernameService"
+UsernameService.Parent = Startup
+UsernameService.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UsernameService.BackgroundTransparency = 1.000
+UsernameService.Position = UDim2.new(0.234828502, 0, 0.150341675, 0)
+UsernameService.Size = UDim2.new(0, 200, 0, 119)
+UsernameService.Font = Enum.Font.Michroma
+UsernameService.Text = "Afternoon Unknown Person."
+UsernameService.TextColor3 = Color3.fromRGB(182, 202, 0)
+UsernameService.TextSize = 24.000
+UsernameService.TextWrapped = true
+Login.Name = "Login"
+Login.Parent = Startup
+Login.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Login.Position = UDim2.new(0.102902375, 0, 0.441913426, 0)
+Login.Size = UDim2.new(0, 301, 0, 50)
+Login.Font = Enum.Font.GrenzeGotisch
+Login.Text = "Log In"
+Login.TextColor3 = Color3.fromRGB(163, 91, 39)
+Login.TextSize = 37.000
+UICorner_2.CornerRadius = UDim.new(0, 82)
+UICorner_2.Parent = Login
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(149, 0, 0)), ColorSequenceKeypoint.new(0.44, Color3.fromRGB(179, 71, 71)), ColorSequenceKeypoint.new(0.70, Color3.fromRGB(134, 95, 51)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(132, 55, 0))}
+UIGradient.Parent = Login
+local function KJCD_fake_script() -- UserIDservice.LocalScript 
+local script = Instance.new('LocalScript', UserIDservice)
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local userId = player.UserId
+local thumbType = Enum.ThumbnailType.HeadShot
+local thumbSize = Enum.ThumbnailSize.Size420x420
+local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+	
+local imageLabel = script.Parent
+imageLabel.Image = content
+end
+coroutine.wrap(KJCD_fake_script)()
+local function SPYTF_fake_script() -- UsernameService.getname 
+local script = Instance.new('LocalScript', UsernameService)
+
+local player = game.Players.LocalPlayer
+local text = script.Parent.Text
+	
+if player then
+script.Parent.Text = "Afternoon " ..player.Name.. "."
+end
+end
+coroutine.wrap(SPYTF_fake_script)()
+local function QMZL_fake_script() -- Login.LocalScript 
+local script = Instance.new('LocalScript', Login)
+game.Players.PlayerAdded:Connect(function(plr)
+print("PLAYER JOINED: "..plr.Name)
+end)
+game.Players.PlayerRemoving:Connect(function(plr)
+print("PLAYER LEFT: "..plr.Name)
+end)
+script.Parent.MouseButton1Down:Connect(function()
+local player = game.Players.LocalPlayer
+player:Kick("you are not whitelisted! whitelist for free here -->")
+end)
+end
+coroutine.wrap(QMZL_fake_script)()
